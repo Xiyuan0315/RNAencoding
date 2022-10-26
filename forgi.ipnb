@@ -1,0 +1,114 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "33546618-f243-40e7-972a-c516018d3673",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import matplotlib.pyplot as plt\n",
+    "import forgi.visual.mplotlib as fvm\n",
+    "import forgi"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "id": "2bfaa6d8-8b22-4f43-84d6-f7520ea1c364",
+   "metadata": {},
+   "outputs": [
+    {
+     "ename": "FileNotFoundError",
+     "evalue": "[Errno 2] No such file or directory: 'examples/input/1y26.fx'",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+      "\u001b[0;31mFileNotFoundError\u001b[0m                         Traceback (most recent call last)",
+      "Cell \u001b[0;32mIn [10], line 1\u001b[0m\n\u001b[0;32m----> 1\u001b[0m cg \u001b[38;5;241m=\u001b[39m \u001b[43mforgi\u001b[49m\u001b[38;5;241;43m.\u001b[39;49m\u001b[43mload_rna\u001b[49m\u001b[43m(\u001b[49m\u001b[38;5;124;43m\"\u001b[39;49m\u001b[38;5;124;43mexamples/input/1y26.fx\u001b[39;49m\u001b[38;5;124;43m\"\u001b[39;49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mallow_many\u001b[49m\u001b[38;5;241;43m=\u001b[39;49m\u001b[38;5;28;43;01mFalse\u001b[39;49;00m\u001b[43m)\u001b[49m\n\u001b[1;32m      2\u001b[0m fvm\u001b[38;5;241m.\u001b[39mplot_rna(cg, text_kwargs\u001b[38;5;241m=\u001b[39m{\u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mfontweight\u001b[39m\u001b[38;5;124m\"\u001b[39m:\u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mblack\u001b[39m\u001b[38;5;124m\"\u001b[39m}, lighten\u001b[38;5;241m=\u001b[39m\u001b[38;5;241m0.7\u001b[39m,\n\u001b[1;32m      3\u001b[0m              backbone_kwargs\u001b[38;5;241m=\u001b[39m{\u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mlinewidth\u001b[39m\u001b[38;5;124m\"\u001b[39m:\u001b[38;5;241m3\u001b[39m})\n\u001b[1;32m      4\u001b[0m plt\u001b[38;5;241m.\u001b[39mshow()\n",
+      "File \u001b[0;32m~/opt/anaconda3/envs/tensorflow/lib/python3.10/site-packages/forgi/utilities/commandline_utils.py:249\u001b[0m, in \u001b[0;36mload_rna\u001b[0;34m(filename, rna_type, allow_many, pdb_chain, pdb_remove_pk, pdb_dotbracket, dissolve_length_one_stems, pdb_annotation_tool, pdb_allow_www_query)\u001b[0m\n\u001b[1;32m    247\u001b[0m         \u001b[38;5;28;01melse\u001b[39;00m:\n\u001b[1;32m    248\u001b[0m             \u001b[38;5;28;01mreturn\u001b[39;00m bg\n\u001b[0;32m--> 249\u001b[0m \u001b[38;5;28;01mwith\u001b[39;00m \u001b[38;5;28;43mopen\u001b[39;49m\u001b[43m(\u001b[49m\u001b[43mfilename\u001b[49m\u001b[43m)\u001b[49m \u001b[38;5;28;01mas\u001b[39;00m rnafile:\n\u001b[1;32m    250\u001b[0m     filetype \u001b[38;5;241m=\u001b[39m sniff_filetype(rnafile)\n\u001b[1;32m    251\u001b[0m \u001b[38;5;28;01mif\u001b[39;00m rna_type \u001b[38;5;241m==\u001b[39m \u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mpdb\u001b[39m\u001b[38;5;124m\"\u001b[39m \u001b[38;5;129;01mand\u001b[39;00m filetype \u001b[38;5;129;01mnot\u001b[39;00m \u001b[38;5;129;01min\u001b[39;00m [\u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mpdb\u001b[39m\u001b[38;5;124m\"\u001b[39m, \u001b[38;5;124m\"\u001b[39m\u001b[38;5;124mcif\u001b[39m\u001b[38;5;124m\"\u001b[39m]:\n",
+      "\u001b[0;31mFileNotFoundError\u001b[0m: [Errno 2] No such file or directory: 'examples/input/1y26.fx'"
+     ]
+    }
+   ],
+   "source": [
+    "cg = forgi.load_rna(\"examples/input/1y26.fx\", allow_many=False)\n",
+    "fvm.plot_rna(cg, text_kwargs={\"fontweight\":\"black\"}, lighten=0.7,\n",
+    "             backbone_kwargs={\"linewidth\":3})\n",
+    "plt.show()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "fca4fec1-6abe-4718-a448-fce5ce1cf268",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import forgi.graph.bulge_graph as fgb\n",
+    "# bg = fgb.BulgeGraph.from_dotbracket('((..))..((..))')\n",
+    "import forgi"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "1f2664de-3426-4439-b34c-3fb0079cea46",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "bg, = forgi.load_rna('(((((((((...((((((.........))))))........((((((.......))))))..)))))))))')"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "73bbd41e-8301-4985-8929-14e16f373ce4",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'SSSSSSSSSMMMSSSSSSHHHHHHHHHSSSSSSMMMMMMMMSSSSSSHHHHHHHSSSSSSMMSSSSSSSSS'"
+      ]
+     },
+     "execution_count": 5,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "bg.to_element_string().upper()"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "ce2f54be-2d4d-4ffe-920e-fac26daf0d0e",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.9.12"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
